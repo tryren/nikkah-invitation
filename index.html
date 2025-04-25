@@ -459,14 +459,14 @@
       const bgMusic = document.getElementById('bgMusic');
       const controlBtn = document.getElementById('audioControl');
       const playM = document.getElementById('openInv');
-
+      
       playM.addEventListener('click', () => {
         bgMusic.currentTime = 0;
         bgMusic.play();
         controlBtn.innerText = '🔊';
         document.getElementById('audioControl').classList.remove('hidden');
       });
-
+      
       controlBtn.addEventListener('click', () => {
         if (bgMusic.paused) {
           bgMusic.play();
@@ -474,6 +474,26 @@
         } else {
           bgMusic.pause();
           controlBtn.innerText = '🔇';
+        }
+      });
+      
+      // Auto-pause and auto-resume based on tab visibility
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          if (!bgMusic.paused) {
+            bgMusic.pause();
+            controlBtn.innerText = '🔇';
+          }
+        } else {
+          // Only resume if user previously started the music
+          if (bgMusic.src && bgMusic.paused) {
+            bgMusic.play().then(() => {
+              controlBtn.innerText = '🔊';
+            }).catch(err => {
+              // If browser blocks autoplay, do nothing silently
+              console.warn('Autoplay blocked:', err);
+            });
+          }
         }
       });
 
