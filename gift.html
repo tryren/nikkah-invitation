@@ -385,6 +385,11 @@
       const encodedItem = encodeURIComponent(itemName);
       const gformURL = `${gformBase}?usp=pp_url&entry.218152220=${encodedItem}`;
       window.open(gformURL);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          location.reload();
+        }
+      });
     }
   </script>  
 </body>
