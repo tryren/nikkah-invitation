@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Gift - Syifana & Bayu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Great+Vibes&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            burgundy: '#800020',
+            cream: '#fff1df',
+            brown: '#764a28'
+          },
+          fontFamily: {
+            playfair: ['Playfair Display'],
+            arabic: ['Amiri', 'serif'],
+            vibes: ['Great Vibes', 'cursive'],
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @keyframes floatY {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes slowPulse {
+      0% { opacity: 0.2; }
+      50% { opacity: 0.7; }
+      100% { opacity: 0.2; }
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUpMain {
+      0% { opacity: 0; transform: translateY(350px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0; transform: scale(0.95); }
+    }
+
+    .hidden-scrollbar::-webkit-scrollbar { display: none; }
+    .hidden-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .hero-section {
+      background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgb(128, 0, 32) 100%),
+        url('assets/bgmh.png'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .burg-section {
+      background-image:
+        linear-gradient(rgba(128, 0, 32, 1) 0%, rgb(128, 0, 32, 0.5) 35%, rgb(128, 0, 32, 0.5) 65%, rgba(128, 0, 32, 1) 100%),
+        url('assets/sb.jpg'); /* Your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .gift-section {
+      background-image:
+        linear-gradient(rgba(128, 0, 32, 1) 0%, rgb(128, 0, 32, 0.7) 30%, rgb(128, 0, 32, 0.7) 70%, rgba(128, 0, 32, 1) 100%),
+        url('assets/gift.jpg'); /* Your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .jry-section {
+      background-image:
+        linear-gradient(rgba(128, 0, 32, 1) 0%, rgb(128, 0, 32, 0.5) 40%, rgb(128, 0, 32, 0.5) 60%, rgba(128, 0, 32, 1) 100%),
+        url('assets/fw.jpg'); /* Your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .crm-section {
+      background-image: 
+        linear-gradient(rgba(255, 247, 237, 0.8) 0%, rgba(255, 247, 237, 0.8) 100%),
+        url('assets/tile.jpg'); /* Your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .loc-section {
+      background-image:
+        linear-gradient(rgb(128, 0, 32) 0%, rgb(219, 106, 121) 40%, rgb(219, 106, 121) 60%, rgb(128, 0, 32) 100%),
+        url('assets/msjd.jpg'); /* Your background image */
+      background-blend-mode: multiply;
+      background-size: 105%;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .last-section {
+      background-image:
+        linear-gradient(to top, rgba(128, 0, 32, 0.5) 0%, rgb(128, 0, 32) 100%),
+        url('assets/bgmh.png'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body class="bg-burgundy text-burgundy font-inter">
+
+  <!-- Loading... -->
+  <div id="loadingScreen" class="fixed inset-0 bg-cream flex items-center justify-center z-50 transition-opacity duration-500 opacity-100">
+    <div class="flex flex-col items-center justify-center">
+      <div class="border-4 border-burgundy border-t-transparent rounded-full w-12 h-12 animate-spin mb-4"></div>
+      <p class="text-burgundy font-inter font-bold">Loading...</p>
+    </div>
+  </div>  
+
+  <!-- Hero Section -->
+  <section class="text-center pt-16 px-6 text-cream">
+    <h1 class="text-4xl font-vibes mb-8">Our Wishlist</h1>
+    <p class="font-inter italic text-sm max-w-2xl mx-auto">
+      Kehadiran dan Do'a Saudara/i adalah hadiah terindah bagi kami. Namun jika berkenan memberikan hal lainnya, berikut beberapa barang yang akan sangat berguna untuk memulai kehidupan baru kami bersama.
+    </p>
+  </section>
+
+  <!-- Gift List Section -->
+  <section class="py-8 px-6 font-inter">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+
+      <!-- Gift Item -->
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/abydac2" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/cooker.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Rice Cooker</h3>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Rice Cooker" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/eAKk7c4" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/pan.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Peralatan Masak</h3>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Peralatan Masak" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/BSP2fLu" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/fryer.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Air Fryer</h3>
+          <p class="text-xs font-bold mb-1 italic underline">Cotton White 3L</p>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Air Fryer" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/UaTNzxu" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/blender.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Blender</h3>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Blender" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/F5aNxVt" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/spatula.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Spatula Set</h3>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Spatula Set" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/TuX8yz9" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/knives.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Pisau Set</h3>
+          <p class="text-xs font-bold mb-1 italic underline">Ivory</p>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Pisau Set" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/vTZaiSC" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/teko.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Teko</h3>
+          <p class="text-xs font-bold mb-1 italic underline">Beige</p>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Teko" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/wVTVWAA" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/iron.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Setrika</h3>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Setrika" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://www.tokopedia.com/samsung/samsung-mesin-cuci-wa70-top-load-wobble-technology-7kg-1730575216118564845?utm_source=whatsapp&utm_medium=share&utm_campaign=pdp-p8n6aewow9sm-100272228472--10000" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/wm.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Mesin Cuci</h3>
+          <p class="text-sm mb-3">Buka Tokopedia 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Mesin Cuci" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/jBDhZLq" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/towel.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Handuk Couple</h3>
+          <p class="text-xs font-bold mb-1 italic underline">Stone Grey & Ivory</p>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Handuk Couple" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://id.shp.ee/6qjyctu" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/drawer.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Lemari</h3>
+          <p class="text-xs font-bold mb-1 italic underline">LNS CH3+3 WHITE SM</p>
+          <p class="text-sm mb-3">Buka Shopee 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Lemari" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://www.tokopedia.com/unilandsleep/kasur-pocket-spring-bed-latex-hr-single-pillowtop-30cm-uniland-sleep-160x200?utm_source=whatsapp&utm_medium=share&utm_campaign=pdp-bfwhbrzljno5-6887161056--10000" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/bed.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg underline">Kasur</h3>
+          <p class="text-xs font-bold mb-1 italic underline">160x200</p>
+          <p class="text-sm mb-3">Buka Tokopedia 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Kasur" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://www.tokopedia.com/bardidistributorofficial/bardi-ip-camera-outdoor-ptz-wifi-cctv-kamera-pintar?utm_source=whatsapp&utm_medium=share&utm_campaign=pdp-vqju9n0ucizr-5033479322--10000" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/cctv.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">CCTV</h3>
+          <p class="text-sm mb-3">Buka Tokopedia 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="CCTV" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://www.mi.co.id/id/product/xiaomi-tv-a-pro-43-2025/" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/tv.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Smart TV</h3>
+          <p class="text-sm mb-3">Buka Official Website 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Smart TV" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://www.tokopedia.com/ptssm/ac-daikin-split-type-ftp25av149-1-pk?utm_source=whatsapp&utm_medium=share&utm_campaign=pdp-a6fl95e9ey5e-849179448-0" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/ac.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">AC</h3>
+          <p class="text-sm mb-3">Buka Tokopedia 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="AC" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+
+      <div class="bg-white px-2 py-6 rounded-2xl shadow-lg text-burgundy text-center flex flex-col items-center border border-4 border-[#a15050]">
+        <a href="https://www.tokopedia.com/perysmith-id/perysmith-x10-pro-handheld-vacum-cleaner-portable-home-penyedot-debu-vakum-perysmith-xtreme-series-vacuum-cleaner-1729645069617171256?utm_source=whatsapp&utm_medium=share&utm_campaign=pdp-mrtnmbetecm4-100251499310-6990981" target="_blank" class="block text-center hover:opacity-90 transition duration-200">
+          <img src="assets/vacuum.jpg" class="w-32 h-32 mb-4 mx-auto rounded-lg" />
+          <h3 class="font-bold text-lg mb-1 underline">Vacuum Cleaner</h3>
+          <p class="text-sm mb-3">Buka Tokopedia 🔗</p>
+        </a>
+        <button onclick="openGiftModal(this)" data-item="Vacuum Cleaner" class="mt-auto bg-burgundy text-white px-4 py-2 rounded-xl">Pilih</button>
+      </div>
+    
+    <!-- Modal -->
+    <div id="giftModal" class="fixed inset-0 z-[9999] hidden bg-black/50 flex items-center justify-center px-4">
+      <!-- Backdrop to close modal -->
+      <div onclick="closeGiftModal()" class="absolute inset-0"></div>
+
+      <!-- Modal Card -->
+      <div class="relative z-10 w-full max-w-md bg-burgundy text-cream rounded-2xl shadow-xl p-6 space-y-4 animate-[fadeIn_0.3s_ease-out]">
+        
+        <!-- Title & Close -->
+        <div class="flex justify-between items-center">
+          <h2 id="modalItemName" class="font-playfair text-2xl font-bold text-center"></h2>
+          <button onclick="closeGiftModal()" class="text-2xl font-semibold">&times;</button>
+        </div>
+
+        <!-- Description -->
+        <p class="text-sm font-inter text-center">
+          Untuk memberikan kemudahan, kami juga menyediakan opsi untuk Checkout Langsung atau Titip Hadiah🥳
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex gap-3 pt-2">
+          <a href="#" id="checkoutLink" class="flex-1 border-2 bg-cream text-burgundy font-bold text-center py-2 rounded-xl">
+            Checkout 🛒
+          </a>
+          <a href="#" id="gformLink" class="flex-1 bg-cream text-burgundy font-bold text-center py-2 rounded-xl">
+            Titip Hadiah 🎁
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Main Page -->
+  <section>
+    <div class="text-center pb-16">
+      <a href="index.html" class="text-cream underline hover:text-red-700">← Kembali ke Undangan</a>
+    </div>
+  </section>
+  
+  <script>
+    // Loading...
+    window.onload = function () {
+      setTimeout(() => {
+        const loader = document.getElementById('loadingScreen');
+        loader.classList.add('opacity-0'); // Triggers fade out
+
+        // Remove element after transition
+        setTimeout(() => loader.remove(), 500); // matches duration-500
+      }, 2700); // Delay before fade-out starts
+    };
+
+    const sheetAPI = "https://script.google.com/macros/s/AKfycbzpwjbiBBcuVcaTQpVxqxZl1SexIsVeTm8MpO2SzCubPjocRJk3LK1CuPaQf0dshbQdNg/exec";
+
+    fetch(sheetAPI)
+      .then(res => res.json())
+      .then(reserved => {
+        document.querySelectorAll('[data-item]').forEach(button => {
+          const itemName = button.getAttribute('data-item');
+          if (reserved[itemName]) {
+            button.textContent = "Taken";
+            button.disabled = true;
+            button.classList.remove("bg-burgundy", "text-white");
+            button.classList.add("cursor-not-allowed", "opacity-60", "text-burgundy", "bg-white", "font-bold");
+
+            const card = button.closest("div.bg-white");
+            if (card) {
+              card.classList.add("opacity-50", "pointer-events-none", "grayscale");
+            }
+          }
+        });
+      });
+
+    function openGiftModal(button) {
+      const itemName = button.getAttribute('data-item');
+
+      // Update link Google Form dengan prefilled item name
+      const gformBase = "https://docs.google.com/forms/d/e/1FAIpQLSeLpUYe6LvghR8Q55ECSuBfeuFxkz-3os5O_QeFiD6jlbRoFw/viewform";
+      const encodedItem = encodeURIComponent(itemName);
+      const gformURL = `${gformBase}?usp=pp_url&entry.218152220=${encodedItem}`;
+      window.open(gformURL);
+    }
+  </script>  
+</body>
+</html>
